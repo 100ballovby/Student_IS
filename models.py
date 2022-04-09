@@ -1,3 +1,5 @@
+from sqlalchemy.orm import backref
+
 from app import db
 from datetime import datetime
 from werkzeug.security import generate_password_hash, check_password_hash
@@ -33,3 +35,8 @@ class User(UserMixin, db.Model):
         return check_password_hash(self.password, password)
 
 
+class Teachers(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    name = db.Column(db.String(255), index=True)
+    subj_id = db.relationship('Subjects', backref='teachers', lazy=True)
+    # TODO: сделать связь с предметами
