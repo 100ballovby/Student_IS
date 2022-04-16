@@ -54,3 +54,4 @@ class TeacherForm(FlaskForm):
     name = StringField('Teacher\'s name: ',
                        validators=[DataRequired()])
     subject = SelectField('Subject', choices=[])
+    submit = SubmitField('Add')
