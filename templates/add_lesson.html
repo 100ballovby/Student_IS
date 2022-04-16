@@ -18,6 +18,10 @@
             {{ form.subject(class="form-select") }}
         </div>
         <div class="mb-3">
+            {{ form.teacher.label(class="form-label") }}
+            {{ form.teacher(class="form-select") }}
+        </div>
+        <div class="mb-3">
             {{ form.submit(class="btn btn-outline-primary") }}
         </div>
     </form>
