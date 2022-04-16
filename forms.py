@@ -1,5 +1,5 @@
 from flask_wtf import FlaskForm
-from wtforms import StringField, FloatField, DateField, SubmitField, SelectField, BooleanField, PasswordField
+from wtforms import StringField, FloatField, DateField, SubmitField, SelectField, BooleanField, PasswordField, DateField, TimeField
 from wtforms.validators import DataRequired, ValidationError, EqualTo
 from models import User
 
@@ -54,4 +54,12 @@ class TeacherForm(FlaskForm):
     name = StringField('Teacher\'s name: ',
                        validators=[DataRequired()])
     subject = SelectField('Subject', choices=[])
+    submit = SubmitField('Add')
+
+
+class LessonForm(FlaskForm):
+    date = DateField('Lesson date: ', validators=[DataRequired()])
+    time = TimeField('Lesson time: ', validators=[DataRequired()])
+    teacher = SelectField('Teacher: ', choices=[])
+    subject = SelectField('Subject: ', choices=[])
     submit = SubmitField('Add')
